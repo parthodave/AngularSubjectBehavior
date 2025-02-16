@@ -1,13 +1,19 @@
+// src/app/app.component.ts
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { SenderComponent } from './sender/sender.component';
+import { ReceiverComponent } from './receiver/receiver.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [SenderComponent, ReceiverComponent],
+  template: `
+    <h1>Angular Standalone Subject Demo</h1>
+    <app-sender></app-sender>
+    <app-receiver></app-receiver>
+  `,
 })
-export class AppComponent {
-  title = 'subject-demo';
-}
+export class AppComponent {}
+
+bootstrapApplication(AppComponent);
